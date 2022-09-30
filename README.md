@@ -30,3 +30,6 @@ Here are the functions currently included in `HERON`:
 
 -   **`sizer_aggregate`**: Aggregate `SiZer`-identified slope types
     across all bandwidths and return this information as a dataframe
+
+-   **`sizer_plot`**: Creates base R plot of `SiZer` object with
+    horizontal lines at specified bandwidths
