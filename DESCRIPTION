@@ -15,3 +15,7 @@ Encoding: UTF-8
 Depends:
     R (>= 3.5)
 RoxygenNote: 7.2.1
+Imports:
+    dplyr,
+    magrittr,
+    SiZer
