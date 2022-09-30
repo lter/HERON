@@ -2,7 +2,7 @@
 % Please edit documentation in R/sizer_slice.R
 \name{sizer_slice}
 \alias{sizer_slice}
-\title{Identify Inflection Points for One SiZer Bandwidth}
+\title{Identify Slope Changes for One SiZer Bandwidth}
 \usage{
 sizer_slice(sizer_object = NULL, bandwidth = NULL)
 }

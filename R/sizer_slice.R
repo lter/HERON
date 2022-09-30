@@ -1,4 +1,4 @@
-#' @title Identify Inflection Points for One SiZer Bandwidth
+#' @title Identify Slope Changes for One SiZer Bandwidth
 #' 
 #' @description Identifies the inflection points (i.e., +/- or -/+ slope changes) for the *one* specified bandwidth. Note that this bandwidth need not be an exact match for what is given to the `sizer_object` argument but should be close 
 #' 
