@@ -34,6 +34,9 @@ Here are the functions currently included in `HERON`:
 -   **`sizer_plot`**: Creates base R plot of `SiZer` object with
     horizontal lines at specified bandwidths
 
+-   **`id_slope_changes`**: Migrate slope changes identified by
+    `SiZer::SiZer` information into the supplied data object
+
 -   **`id_inflections`**: Migrate inflection points implied by
     `SiZer::SiZer` information (“implied” because it only identifies
     slope changes to/from flat slopes) into the supplied data object
