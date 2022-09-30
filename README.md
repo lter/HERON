@@ -45,3 +45,7 @@ Here are the functions currently included in `HERON`:
     inflection points and/or slope changes identified by `SiZer`
     included as vertical lines. Also allows specification of type of
     trendline to fit to data
+
+-   **`sizer_lm`**: Fits linear regressions on each “chunk” of the
+    trendline (i.e., sections of trendline that share a common slope as
+    identified by `id_inflections` or `id_slope_changes`)

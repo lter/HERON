@@ -16,10 +16,12 @@ Depends:
     R (>= 3.5)
 RoxygenNote: 7.2.1
 Imports:
+    broom,
     dplyr,
     ggplot2,
     graphics,
     magrittr,
+    purrr,
     SiZer,
     stats,
     stringr,
