@@ -20,3 +20,10 @@ You can install the development version of HERON from
 # install.packages("devtools")
 devtools::install_github("lter/HERON")
 ```
+
+## `HERON` Functions
+
+Here are the functions currently included in `HERON`:
+
+-   **`sizer_slice`**: Extract the `SiZer`-identified slope for a
+    specified bandwidth and returns this information as a dataframe
