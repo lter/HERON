@@ -32,3 +32,5 @@ Here are the functions currently included in `HERON`:
 
 - **`sizer_slice`**: Extract the `SiZer`-identified slope for a specified bandwidth and returns this information as a dataframe
 
+- **`sizer_aggregate`**: Aggregate `SiZer`-identified slope types across all bandwidths and return this information as a dataframe
+
