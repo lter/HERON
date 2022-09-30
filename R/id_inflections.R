@@ -11,8 +11,8 @@
 #' 
 #' @export
 #' 
-id_inflections <- function(raw_data = NULL, sizer_data = NULL,
-                           x = NULL, y = NULL){
+id_inflections <- function(raw_data = NULL, x = NULL, y = NULL,
+                           sizer_data = NULL){
   # Squelch visible bindings note
   groups <- rough_start <- rough_end <- simp_start <- simp_end <- NULL
   
