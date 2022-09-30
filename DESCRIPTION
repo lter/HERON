@@ -21,4 +21,7 @@ Imports:
     graphics,
     magrittr,
     SiZer,
-    stats
+    stats,
+    stringr,
+    tidyr,
+    tidyselect

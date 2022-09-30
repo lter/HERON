@@ -34,6 +34,10 @@ Here are the functions currently included in `HERON`:
 -   **`sizer_plot`**: Creates base R plot of `SiZer` object with
     horizontal lines at specified bandwidths
 
+-   **`id_inflections`**: Migrate inflection points implied by
+    `SiZer::SiZer` information (“implied” because it only identifies
+    slope changes to/from flat slopes) into the supplied data object
+
 -   **`sizer_ggplot`**: Creates `ggplot2` plot of trendline with
     inflection points and/or slope changes identified by `SiZer`
     included as vertical lines. Also allows specification of type of
