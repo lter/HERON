@@ -17,6 +17,7 @@ Depends:
 RoxygenNote: 7.2.1
 Imports:
     dplyr,
+    ggplot2,
     graphics,
     magrittr,
     SiZer,
