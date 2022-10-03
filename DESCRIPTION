@@ -8,13 +8,23 @@ Authors@R: c(
           role = c("aut", "cre"),
           email = "njlyon@alumni.iastate.edu",
           comment = c(ORCID = "0000-0003-3905-1078")),
-   person(given = "Keira",
+   person(given = "Joanna",
+          family = "Carey",
+          role = c("ctb"),
+          email = "jcarey@babson.edu",
+          comment = c(ORCID = "0000-0003-2365-9185")),
+  person(given = "Kathi Jo",
+          family = "Jankowski",
+          role = c("ctb"),
+          email = "kjankowski@usgs.gov",
+          comment = c(ORCID = "0000-0002-3292-4182")),
+  person(given = "Keira",
           family = "Johnson",
-          role = c("aut"),
+          role = c("ctb"),
           email = "johnkeir@oregonstate.edu",
           comment = c(ORCID = "0000-0003-0671-3901"))
                   )
-Maintainer: Nicholas Lyon <njlyon@alumni.iastate.edu>
+Maintainer: Nicholas Lyon <lyon@nceas.ucsb.edu>
 Description: Supplementary functions for workflows including the "EGRET" and "SiZer" R packages.
    Meant to improve reproducibility for common operations following use of these packages.
 License: BSD_3_clause + file LICENSE
