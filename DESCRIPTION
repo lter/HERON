@@ -37,6 +37,7 @@ Imports:
     dplyr,
     ggplot2,
     graphics,
+    lubridate,
     magrittr,
     purrr,
     stats,
