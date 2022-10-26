@@ -25,6 +25,15 @@ devtools::install_github("lter/HERON")
 
 Here are the functions currently included in `HERON`:
 
+### `EGRET` Helper Functions
+
+-   **`egret_report`**: Generate a coarse PDF report containing plots of
+    `EGRET` function outputs. Useful for quickly characterizing a suite
+    of patterns in the data though allows little aesthetic customization
+    and is thus best used only for this preliminary “first look”
+
+### `SiZer` Helper Functions
+
 -   **`sizer_slice`**: Extract the `SiZer`-identified slope for a
     specified bandwidth and returns this information as a dataframe
 
@@ -49,3 +58,9 @@ Here are the functions currently included in `HERON`:
 -   **`sizer_lm`**: Fits linear regressions on each “chunk” of the
     trendline (i.e., sections of trendline that share a common slope as
     identified by `id_inflections` or `id_slope_changes`)
+
+### Misc. Other Functions
+
+-   **`hydro_day`**: Accepts a calendar date and converts it into an
+    equivalent “hydro day”. Allows user to specify the first month of
+    the hydrologic year as this may differ by hemisphere
