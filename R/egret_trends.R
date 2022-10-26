@@ -13,7 +13,7 @@
 #' 
 egret_trends <- function(eList_series = NULL, flux_unit = 8){
   # Squelch visible bindings note
-  Metric <- year_points <- NULL
+  Metric <- NULL
   
   # Error out for missing argument
   if(is.null(eList_series))
@@ -34,19 +34,19 @@ egret_trends <- function(eList_series = NULL, flux_unit = 8){
   year_vec <- lubridate::year(as.Date(daily_values$Date))
   
   # Find minimum and maximum year
-  min_year <- as.numeric(x = min(year_vec, na.rm = TRUE))
-  max_year <- as.numeric(x = max(year_vec, na.rm = TRUE))
+  min_year <- as.numeric(x = min(year_vec, na.rm = TRUE)) + 1
+  max_year <- as.numeric(x = max(year_vec, na.rm = TRUE)) - 1
   
   # Assemble that into a two-element vector
   year_pts <- c(min_year, max_year)
   
   # Calculate concentration trend
   conc <- EGRET::tableChangeSingle(eList = eList_series, fluxUnit = flux_unit,
-                                      yearPoints = year_points, flux = FALSE)
+                                      yearPoints = year_pts, flux = FALSE)
   
   # Calculate flux trend
   flux <- EGRET::tableChangeSingle(eList = eList_series, fluxUnit = flux_unit,
-                                   yearPoints = year_points, flux = TRUE)
+                                   yearPoints = year_pts, flux = TRUE)
   
   # Add a column indicating which is which
   conc$Metric <- "Concentration"
