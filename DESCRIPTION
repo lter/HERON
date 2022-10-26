@@ -35,8 +35,10 @@ RoxygenNote: 7.2.1
 Imports:
     broom,
     dplyr,
+    EGRET,
     ggplot2,
     graphics,
+    grDevices,
     lubridate,
     magrittr,
     purrr,
