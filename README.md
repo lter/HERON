@@ -32,6 +32,11 @@ Here are the functions currently included in `HERON`:
     of patterns in the data though allows little aesthetic customization
     and is thus best used only for this preliminary “first look”
 
+-   **`egret_trends`**: Calculates flow normalized concentration and
+    flux using `EGRET::tableChangeSingle` and exports a single data
+    object containing both datasets (includes a column named “Metric” to
+    help users split the objects *post hoc*)
+
 ### `SiZer` Helper Functions
 
 -   **`sizer_slice`**: Extract the `SiZer`-identified slope for a
