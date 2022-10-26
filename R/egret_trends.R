@@ -12,6 +12,8 @@
 #' @export
 #' 
 egret_trends <- function(eList_series = NULL, flux_unit = 8){
+  # Squelch visible bindings note
+  Metric <- year_points <- NULL
   
   # Error out for missing argument
   if(is.null(eList_series))
