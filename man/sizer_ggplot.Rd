@@ -11,7 +11,7 @@ sizer_ggplot(
   sizer_data = NULL,
   trendline = "none",
   vline = "all",
-  sharp_colors = c("#DDDDDD", "orange")
+  sharp_colors = c("#bbbbbb", "green")
 )
 }
 \arguments{
@@ -27,7 +27,7 @@ sizer_ggplot(
 
 \item{vline}{(character) one of "all", "inflections", "changes", or "none". "inflections' includes solid y-intercept lines at inflection points, "changes" includes dashed lines at slope change points, "all" includes both inflection and slope change vertical lines, "none" excludes vertical lines}
 
-\item{sharp_colors}{(character) vector of length two that defines the colors to use for (1) slope increasing/decreasing and (2) flat slopes. This argument is only required or used when `trendline = sharp`}
+\item{sharp_colors}{(character) vector of length two that defines the colors to use for (1) flat slopes and (2) slope increasing/decreasing. This argument is only required or used when `trendline = sharp` If inflection points are found, only the second color will be used}
 }
 \description{
 Creates a `ggplot2` plot of the trendline with slope changes identified by `SiZer` in dashed orange lines and inflection points (i.e., +/- or -/+ slope changes) identified in blue and red respectively

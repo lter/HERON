@@ -8,14 +8,14 @@
 #' @param sizer_data (dataframe) object returned by `id_slope_changes` or `id_inflections`
 #' @param trendline (character) one of "smooth", "sharp", or "none". Smooth trendline is `geom_lm(method = "loess")`, sharp creates lines that are broken at slope changes/inflection points, "none" excludes the trendline
 #' @param vline (character) one of "all", "inflections", "changes", or "none". "inflections' includes solid y-intercept lines at inflection points, "changes" includes dashed lines at slope change points, "all" includes both inflection and slope change vertical lines, "none" excludes vertical lines
-#' @param sharp_colors (character) vector of length two that defines the colors to use for (1) slope increasing/decreasing and (2) flat slopes. This argument is only required or used when `trendline = sharp`
+#' @param sharp_colors (character) vector of length two that defines the colors to use for (1) flat slopes and (2) slope increasing/decreasing. This argument is only required or used when `trendline = sharp` If inflection points are found, only the second color will be used
 #' 
 #' @export
 #' 
 sizer_ggplot <- function(raw_data = NULL, x = NULL, y = NULL,
                          sizer_data = NULL, trendline = "none",
                          vline = "all", 
-                         sharp_colors = c("#DDDDDD", 'orange')){
+                         sharp_colors = c("#bbbbbb", "green")){
   # Squlech visible bindings note
   groups <- slope_type <- NULL
   
@@ -94,15 +94,25 @@ sizer_ggplot <- function(raw_data = NULL, x = NULL, y = NULL,
       ggplot2::geom_smooth(method = 'loess', formula = 'y ~ x', 
                            se = FALSE, color = 'black') }
   
-  # If `trendline` is 'sharp', add that trendline
-  if(trendline == "sharp"){
-    p <- p +
-      ggplot2::geom_smooth(ggplot2::aes(group = groups,
-                                        color = slope_type),
-                           method = stats::lm,
-                           formula = 'y ~ x', se = FALSE) +
-      ggplot2::scale_color_manual(values = sharp_colors) +
-      ggplot2::theme(legend.position = 'none') }
+  # If trendline is sharp but inflections exist, use only second color
+  if(trendline == "sharp" &
+     !base::all(is.na(sizer_data$pos_to_neg)) | 
+     !base::all(is.na(sizer_data$neg_to_pos))){
+    p <- p + 
+      ggplot2::geom_smooth(ggplot2::aes(group = groups, color = 'static'), 
+                           method = stats::lm, formula = "y ~ x", se = FALSE) + 
+      ggplot2::scale_color_manual(values = sharp_colors[2]) + 
+      ggplot2::theme(legend.position = "none") }
+  
+  # If trendline is sharp and NO inflections exist, use both colors
+  if(trendline == "sharp" & 
+     base::all(is.na(sizer_data$pos_to_neg)) & 
+     base::all(is.na(sizer_data$neg_to_pos))){
+    p <- p + 
+      ggplot2::geom_smooth(ggplot2::aes(group = groups, color = slope_type),
+                           method = stats::lm, formula = "y ~ x", se = FALSE) +
+      ggplot2::scale_color_manual(values = sharp_colors) + 
+      ggplot2::theme(legend.position = "none") }
   
   # Return the plot
   return(p) }
