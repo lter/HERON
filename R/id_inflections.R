@@ -39,7 +39,8 @@ id_inflections <- function(raw_data = NULL, x = NULL, y = NULL,
   brk_pts_actual <- brk_pts[!is.na(brk_pts)]
 
   # Identify number of digits
-  brk_pt_dig <- (nchar(round(brk_pts_actual, digits = 0)) + 1)[1]
+  if(length(brk_pts_actual) > 0){ brk_pt_dig <- (nchar(floor(brk_pts_actual)) + 1)[1] }
+  if(length(brk_pts_actual) == 0){ brk_pt_dig <- (nchar(floor(sizer_data$x_grid)) + 1)[1] }
   
   # Create necessary columns
   data_mod <- raw_data %>%
