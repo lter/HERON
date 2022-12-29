@@ -44,10 +44,14 @@ id_slope_changes <- function(raw_data = NULL, x = NULL, y = NULL,
   # Drop NAs
   brk_pts_actual <- brk_pts[!is.na(brk_pts)]
   
+  # Identify number of digits
+  brk_pt_dig <- (nchar(round(brk_pts_actual, digits = 0)) + 1)[1]
+  
   # Make a simpler version of the sizer data (we'll need this later)
   sizer_simp <- sizer_data %>%
     # Break X by breakpoints identified in this dataframe
-    dplyr::mutate(groups = base::cut(x = sizer_data$x_grid,
+    dplyr::mutate(groups = base::cut(x = sizer_data$x_grid, 
+                                     dig.lab = brk_pt_dig,
                                      breaks = c(-Inf, brk_pts_actual, Inf))) %>%
     # Identify what the slope *is* (rather than what it changes to)
     dplyr::mutate(slope_type_rough = dplyr::case_when(
@@ -62,6 +66,7 @@ id_slope_changes <- function(raw_data = NULL, x = NULL, y = NULL,
     # Identify rough groups
     dplyr::mutate(
       groups = base::cut(x = raw_data[[x]],
+                         dig.lab = brk_pt_dig,
                          breaks = c(-Inf, brk_pts_actual, Inf)),
       .after = tidyselect::all_of(x)) %>%
     # Attach slope types from simplified SiZer object
@@ -84,17 +89,17 @@ id_slope_changes <- function(raw_data = NULL, x = NULL, y = NULL,
     # Remove parentheses / brackets
     dplyr::mutate(
       simp_start = stringr::str_sub(
-        rough_start, start = 2, end = nchar(rough_start)),
+        string = rough_start, start = 2, end = nchar(rough_start)),
       simp_end = gsub(pattern = "]| ", replacement = "", 
                       x = rough_end)) %>%
     # Swap "Inf" and "-Inf" for the actual start/end X values
     dplyr::mutate(
-      start = as.numeric(ifelse(test = (simp_start == -Inf),
+      start = as.numeric(ifelse(test = simp_start == -Inf,
                                 yes = dplyr::first(raw_data[[x]]),
-                                no = simp_start)),
-      end = as.numeric(ifelse(test = (simp_end == Inf),
+                                no = floor(x = as.numeric(simp_start)))),
+      end = as.numeric(ifelse(test = simp_end == Inf,
                               yes = dplyr::last(raw_data[[x]]),
-                              no = simp_end)),
+                              no = floor(x = as.numeric(simp_end)))),
       .after = groups) %>%
     # Remove intermediary columns
     dplyr::select(-rough_start, -rough_end,
