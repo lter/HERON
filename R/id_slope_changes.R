@@ -44,8 +44,9 @@ id_slope_changes <- function(raw_data = NULL, x = NULL, y = NULL,
   # Drop NAs
   brk_pts_actual <- brk_pts[!is.na(brk_pts)]
   
-  # Identify number of digits
-  brk_pt_dig <- (nchar(round(brk_pts_actual, digits = 0)) + 1)[1]
+  # Identify number of digits to round group to
+  if(length(brk_pts_actual) > 0){ brk_pt_dig <- (nchar(floor(brk_pts_actual)) + 1)[1] }
+  if(length(brk_pts_actual) == 0){ brk_pt_dig <- (nchar(floor(sizer_data$x_grid)) + 1)[1] }
   
   # Make a simpler version of the sizer data (we'll need this later)
   sizer_simp <- sizer_data %>%
