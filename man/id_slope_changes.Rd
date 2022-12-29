@@ -4,7 +4,13 @@
 \alias{id_slope_changes}
 \title{Identify Changes in Slope}
 \usage{
-id_slope_changes(raw_data = NULL, x = NULL, y = NULL, sizer_data = NULL)
+id_slope_changes(
+  raw_data = NULL,
+  x = NULL,
+  y = NULL,
+  sizer_data = NULL,
+  group_dig = 6
+)
 }
 \arguments{
 \item{raw_data}{(dataframe) data object}
@@ -14,6 +20,8 @@ id_slope_changes(raw_data = NULL, x = NULL, y = NULL, sizer_data = NULL)
 \item{y}{(character) column name in `raw_data` that is the y-axis}
 
 \item{sizer_data}{(dataframe) object returned by `sizer_slice` or `sizer_aggregate`}
+
+\item{group_dig}{(number) digits to round group edges to}
 }
 \description{
 "Breaks" a given continuous variable at the *slope changes* identified by `sizer_aggregate` or `sizer_slice` and creates a column (named `groups`) that contains these group designations. Additionally, it identifies the start and end value of X for each group in two other new columns (named `start` and `end`, respectively)

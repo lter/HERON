@@ -6,13 +6,14 @@
 #' @param x (character) column name in `raw_data` that is the x-axis
 #' @param y (character) column name in `raw_data` that is the y-axis
 #' @param sizer_data (dataframe) object returned by `sizer_slice` or `sizer_aggregate`
+#' @param group_dig (number) digits to round group edges to
 #' 
 #' @importFrom magrittr %>%
 #' 
 #' @export
 #' 
 id_slope_changes <- function(raw_data = NULL, x = NULL, y = NULL,
-                             sizer_data = NULL){
+                             sizer_data = NULL, group_dig = 6){
   # Squelch visible bindings note
   mean_x <- groups <- change_type <- slope_type_rough <- NULL
   rough_start <- rough_end <- simp_start <- simp_end <- NULL
@@ -44,15 +45,11 @@ id_slope_changes <- function(raw_data = NULL, x = NULL, y = NULL,
   # Drop NAs
   brk_pts_actual <- brk_pts[!is.na(brk_pts)]
   
-  # Identify number of digits to round group to
-  if(length(brk_pts_actual) > 0){ brk_pt_dig <- (nchar(floor(brk_pts_actual)) + 1)[1] }
-  if(length(brk_pts_actual) == 0){ brk_pt_dig <- (nchar(floor(sizer_data$x_grid)) + 1)[1] }
-  
   # Make a simpler version of the sizer data (we'll need this later)
   sizer_simp <- sizer_data %>%
     # Break X by breakpoints identified in this dataframe
     dplyr::mutate(groups = base::cut(x = sizer_data$x_grid, 
-                                     dig.lab = brk_pt_dig,
+                                     dig.lab = group_dig,
                                      breaks = c(-Inf, brk_pts_actual, Inf))) %>%
     # Identify what the slope *is* (rather than what it changes to)
     dplyr::mutate(slope_type_rough = dplyr::case_when(
@@ -67,7 +64,7 @@ id_slope_changes <- function(raw_data = NULL, x = NULL, y = NULL,
     # Identify rough groups
     dplyr::mutate(
       groups = base::cut(x = raw_data[[x]],
-                         dig.lab = brk_pt_dig,
+                         dig.lab = group_dig,
                          breaks = c(-Inf, brk_pts_actual, Inf)),
       .after = tidyselect::all_of(x)) %>%
     # Attach slope types from simplified SiZer object
