@@ -8,6 +8,10 @@
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/lter/HERON/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/lter/HERON/actions/workflows/R-CMD-check.yaml)
+![GitHub last
+commit](https://img.shields.io/github/last-commit/lter/HERON) ![GitHub
+issues](https://img.shields.io/github/issues-raw/lter/HERON) ![GitHub
+pull requests](https://img.shields.io/github/issues-pr/lter/HERON)
 <!-- badges: end -->
 
 The goal of HERON is to provide a suite of helpful supplementary
