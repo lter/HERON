@@ -31,7 +31,7 @@ License: BSD_3_clause + file LICENSE
 Encoding: UTF-8
 Depends:
     R (>= 3.5)
-RoxygenNote: 7.2.1
+RoxygenNote: 7.2.3
 Imports:
     broom,
     dplyr,
