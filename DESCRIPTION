@@ -22,7 +22,11 @@ Authors@R: c(
           family = "Johnson",
           role = c("ctb"),
           email = "johnkeir@oregonstate.edu",
-          comment = c(ORCID = "0000-0003-0671-3901"))
+          comment = c(ORCID = "0000-0003-0671-3901")),
+  person(given = "Gabe",
+         family = "De La Rosa",
+         role = "ctb",
+         email = "delarosa@nceas.ucsb.edu")
                   )
 Maintainer: Nicholas Lyon <lyon@nceas.ucsb.edu>
 Description: Supplementary functions for workflows including the "EGRET" and "SiZer" R packages.

@@ -16,6 +16,7 @@ Other contributors:
   \item Joanna Carey \email{jcarey@babson.edu} (\href{https://orcid.org/0000-0003-2365-9185}{ORCID}) [contributor]
   \item Kathi Jo Jankowski \email{kjankowski@usgs.gov} (\href{https://orcid.org/0000-0002-3292-4182}{ORCID}) [contributor]
   \item Keira Johnson \email{johnkeir@oregonstate.edu} (\href{https://orcid.org/0000-0003-0671-3901}{ORCID}) [contributor]
+  \item Gabe De La Rosa \email{delarosa@nceas.ucsb.edu} [contributor]
 }
 
 }
