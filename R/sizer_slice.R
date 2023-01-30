@@ -17,7 +17,7 @@ sizer_slice <- function(sizer_object = NULL, bandwidth = NULL){
   change_type <- x_grid <- dist_to_next <- NULL
   
   # Error out if object isn't provided or isn't a SiZer object
-  if(is.null(sizer_object) | class(sizer_object) != "SiZer")
+  if(is.null(sizer_object) | methods::is(sizer_object, "SiZer") != TRUE)
     stop("`sizer_object` must be provided and must be class 'SiZer'")
   
   # Error out if bandwidth isn't provided

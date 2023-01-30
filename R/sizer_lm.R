@@ -22,7 +22,7 @@ sizer_lm <- function(data = NULL, x = NULL, y = NULL, group_col = NULL){
     stop("All arguments must be provided.")
   
   # Error out if the data are not both dataframes
-  if(class(data) != "data.frame") 
+  if(methods::is(data, "data.frame") != TRUE)
     stop("Both the raw data and the extracted SiZer data must be data frames")
   
   # Error out if the column names are not characters 

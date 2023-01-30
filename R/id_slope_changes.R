@@ -23,7 +23,7 @@ id_slope_changes <- function(raw_data = NULL, x = NULL, y = NULL,
     stop("All arguments must be provided")
   
   # Error out if the data are not both dataframes
-  if(class(raw_data) != "data.frame" | class(sizer_data) != "data.frame") 
+  if(methods::is(raw_data, "data.frame") != TRUE | methods::is(sizer_data, "data.frame") != TRUE)
     stop("Both the raw data and the extracted SiZer data must be data frames")
   
   # Error out if the column names are not characters 

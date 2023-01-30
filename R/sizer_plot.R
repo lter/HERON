@@ -10,11 +10,11 @@
 sizer_plot <- function(sizer_object = NULL, bandwidth_vec = c(3, 6, 9)){
   
   # Error out if object isn't provided or isn't a SiZer object
-  if(is.null(sizer_object) | class(sizer_object) != "SiZer")
+  if(is.null(sizer_object) | methods::is(sizer_object, "SiZer") != TRUE)
     stop("`sizer_object` must be provided and must be class 'SiZer'")
   
   # Error out if bandwidth vector is non-numeric
-  if(class(bandwidth_vec) != "numeric")
+  if(is.numeric(bandwidth_vec) == FALSE)
     stop("`bandwidth_vec` must be numeric")
   
   # Make plot
