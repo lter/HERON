@@ -45,6 +45,7 @@ Imports:
     grDevices,
     lubridate,
     magrittr,
+    methods,
     purrr,
     stats,
     stringr,
