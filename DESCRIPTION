@@ -1,9 +1,9 @@
 Package: HERON
 Type: Package
 Title: Helpers for River Observation
-Version: 0.1.0
+Version: 1.0.0
 Authors@R: c(
-   person(given = "Nicholas J", 
+   person(given = "Nicholas", 
           family = "Lyon",
           role = c("aut", "cre"),
           email = "njlyon@alumni.iastate.edu",
