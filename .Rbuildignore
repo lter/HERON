@@ -5,3 +5,4 @@
 ^_pkgdown\.yml$
 ^docs$
 LICENSE.md
+cran-comments.md
