@@ -99,8 +99,8 @@
 <li><p><strong><code>sizer_slice</code></strong>: Extract the <code>SiZer</code>-identified slope for a specified bandwidth and returns this information as a dataframe</p></li>
 <li><p><strong><code>sizer_aggregate</code></strong>: Aggregate <code>SiZer</code>-identified slope types across all bandwidths and return this information as a dataframe</p></li>
 <li><p><strong><code>sizer_plot</code></strong>: Creates base R plot of <code>SiZer</code> object with horizontal lines at specified bandwidths</p></li>
-<li><p><strong><code>id_slope_changes</code></strong>: Migrate slope changes identified by <code>SiZer::SiZer</code> information into the supplied data object</p></li>
-<li><p><strong><code>id_inflections</code></strong>: Migrate inflection points implied by <code>SiZer::SiZer</code> information (“implied” because it only identifies slope changes to/from flat slopes) into the supplied data object</p></li>
+<li><p><strong><code>id_slope_changes</code></strong>: Migrate slope changes identified by <code><a href="https://rdrr.io/pkg/SiZer/man/SiZer.html" class="external-link">SiZer::SiZer</a></code> information into the supplied data object</p></li>
+<li><p><strong><code>id_inflections</code></strong>: Migrate inflection points implied by <code><a href="https://rdrr.io/pkg/SiZer/man/SiZer.html" class="external-link">SiZer::SiZer</a></code> information (“implied” because it only identifies slope changes to/from flat slopes) into the supplied data object</p></li>
 <li><p><strong><code>sizer_ggplot</code></strong>: Creates <code>ggplot2</code> plot of trendline with inflection points and/or slope changes identified by <code>SiZer</code> included as vertical lines. Also allows specification of type of trendline to fit to data</p></li>
 <li><p><strong><code>sizer_lm</code></strong>: Fits linear regressions on each “chunk” of the trendline (i.e., sections of trendline that share a common slope as identified by <code>id_inflections</code> or <code>id_slope_changes</code>)</p></li>
 </ul>
