@@ -9,7 +9,7 @@
 Supplementary functions for workflows including the "EGRET" and "SiZer" R packages. Meant to improve reproducibility for common operations following use of these packages.
 }
 \author{
-\strong{Maintainer}: Nicholas J Lyon \email{njlyon@alumni.iastate.edu} (\href{https://orcid.org/0000-0003-3905-1078}{ORCID})
+\strong{Maintainer}: Nicholas Lyon \email{njlyon@alumni.iastate.edu} (\href{https://orcid.org/0000-0003-3905-1078}{ORCID})
 
 Other contributors:
 \itemize{
