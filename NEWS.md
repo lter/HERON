@@ -2,7 +2,7 @@
 
 This is the development version of the package. Changes will be listed as they are made.
 
-- Function behavior change: `id_inflections` and `id_slope_changes` now rely on minimum and maximum SiZer "chunk" X-variables (rather than order of values)
+- Function behavior change: `id_inflections` and `id_slope_changes` now rely on minimum and maximum SiZer "chunk" X-variables (unless no non-NA values exist; then uses sorted order of values)
 
 # HERON Version 1.0.0
 
