@@ -55,14 +55,22 @@ id_inflections <- function(raw_data = NULL, x = NULL, y = NULL,
       simp_start = stringr::str_sub(
         string = rough_start, start = 2, end = nchar(rough_start)),
       simp_end = gsub(pattern = "]| ", replacement = "", 
-                      x = rough_end)) %>%
+                      x = rough_end)) %>% 
     # Swap "Inf" and "-Inf" for the actual start/end X values
     dplyr::mutate(
       start = as.numeric(ifelse(test = simp_start == -Inf,
-                                yes = min(raw_data[[x]], na.rm = TRUE),
+                                yes = ifelse(
+                                  test = suppressWarnings(min(raw_data[[x]], na.rm = TRUE)) == Inf,
+                                  yes = dplyr::first(sort(raw_data[[x]])),
+                                  no = min(raw_data[[x]], na.rm = TRUE)
+                                ),
                                 no = floor(x = as.numeric(simp_start)))),
       end = as.numeric(ifelse(test = simp_end == Inf,
-                              yes = max(raw_data[[x]], na.rm = TRUE),
+                              yes = ifelse(
+                                test = suppressWarnings(max(raw_data[[x]], na.rm = TRUE)) == Inf,
+                                yes = dplyr::last(sort(raw_data[[x]])),
+                                no = max(raw_data[[x]], na.rm = TRUE)
+                              ),
                               no = floor(x = as.numeric(simp_end)))),
       .after = groups) %>%
     # Remove intermediary columns

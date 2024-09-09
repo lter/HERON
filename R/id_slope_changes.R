@@ -83,7 +83,7 @@ id_slope_changes <- function(raw_data = NULL, x = NULL, y = NULL,
     dplyr::select(-change_type, -slope_type_rough) %>%
     # Identify start / end years from the groups
     tidyr::separate(col = groups, sep = ",", remove = FALSE,
-                    into = c('rough_start', 'rough_end')) %>%
+                    into = c('rough_start', 'rough_end')) %>% 
     # Remove parentheses / brackets
     dplyr::mutate(
       simp_start = stringr::str_sub(
@@ -93,10 +93,18 @@ id_slope_changes <- function(raw_data = NULL, x = NULL, y = NULL,
     # Swap "Inf" and "-Inf" for the actual start/end X values
     dplyr::mutate(
       start = as.numeric(ifelse(test = simp_start == -Inf,
-                                yes = min(raw_data[[x]], na.rm = TRUE),
+                                yes = ifelse(
+                                  test = suppressWarnings(min(raw_data[[x]], na.rm = TRUE)) == Inf,
+                                  yes = dplyr::first(sort(raw_data[[x]])),
+                                  no = min(raw_data[[x]], na.rm = TRUE)
+                                ),
                                 no = floor(x = as.numeric(simp_start)))),
       end = as.numeric(ifelse(test = simp_end == Inf,
-                              yes = max(raw_data[[x]], na.rm = TRUE),
+                              yes = ifelse(
+                                test = suppressWarnings(max(raw_data[[x]], na.rm = TRUE)) == Inf,
+                                yes = dplyr::last(sort(raw_data[[x]])),
+                                no = max(raw_data[[x]], na.rm = TRUE)
+                              ),
                               no = floor(x = as.numeric(simp_end)))),
       .after = groups) %>%
     # Remove intermediary columns
