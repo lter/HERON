@@ -4,7 +4,6 @@
 # `HERON` - *HE*lpers for *R*iver *O*bservatio*N*
 
 [![R-CMD-check](https://github.com/lter/HERON/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/lter/HERON/actions/workflows/R-CMD-check.yaml)
-![GitHub last commit](https://img.shields.io/github/last-commit/lter/HERON)
 
 The goal of HERON is to provide a suite of helpful supplementary functions for workflows involving the `EGRET` and `SiZer` R packages.
 
